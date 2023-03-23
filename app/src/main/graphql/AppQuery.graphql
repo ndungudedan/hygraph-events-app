@@ -1,0 +1,41 @@
+query LocationQuery($location: String!) {
+    eventLocations {
+        places(location: $location) {
+            count
+            next
+            previous
+            results {
+                country
+                id
+                location
+                name
+            }
+        }
+    }
+}
+
+
+query EventsQuery($category: String!, $location_id: Int!) {
+    listEvents {
+        allEvents(category: $category, location_id: $location_id) {
+            count
+            next
+            previous
+            results {
+                country
+                start
+                duration
+                entities {
+                    name
+                }
+                title
+            }
+        }
+    }
+}
+
+query CategoryQuery {
+    eventCategories {
+        categories
+    }
+}

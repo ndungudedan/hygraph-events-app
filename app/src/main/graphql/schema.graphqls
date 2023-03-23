@@ -1,0 +1,93 @@
+type Query{
+  eventLocations:[EventLocations]
+  listEvents:[ListEvents]
+  eventCategories:[CategoryResult]
+}
+type CategoryResult{
+  categories:[String!]
+}
+
+type EventLocations{
+  places(location:String):LocationsResult
+}
+
+type ListEvents{
+  allEvents(category:String!, location_id: Int):EventsResult
+}
+
+type Location {
+  country: String
+  country_alpha2: String
+  country_alpha3: String
+  county: String
+  id: String
+  location: [Float]
+  name: String
+  region: String
+  type: String
+}
+
+type LocationsResult {
+  count: Int
+  next: Int
+  previous: Int
+  results: [Location]
+}
+
+type Entity {
+  entity_id: String
+  formatted_address: String
+  name: String
+  type: String
+}
+
+type Geometry {
+  coordinates: [Float]
+  type: String
+}
+
+type Geo {
+  geometry: Geometry
+  placekey: String
+}
+
+type ParentEvent {
+  parent_event_id: String
+}
+
+type Event {
+  aviation_rank: Int
+  brand_safe: Boolean
+  category: String
+  country: String
+  description: String
+  duration: Int
+  end: String
+  entities: [Entity]
+  first_seen: String
+  geo: Geo
+  id: String
+  labels: [String]
+  local_rank: Int
+  location: [Float]
+  parent_event: ParentEvent
+  phq_attendance: Int
+  place_hierarchies: [[String]]
+  private: Boolean
+  rank: Int
+  relevance: Int
+  scope: String
+  start: String
+  state: String
+  timezone: String
+  title: String
+  updated: String
+}
+
+type EventsResult {
+  count: Int
+  next: String
+  overflow: Boolean
+  previous: Int
+  results: [Event]
+}
