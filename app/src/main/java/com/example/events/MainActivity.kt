@@ -24,9 +24,6 @@ import androidx.compose.ui.window.PopupProperties
 import com.example.events.ui.theme.EventsTheme
 import com.example.events.viewmodels.MainViewModel
 
-// A data class to hold the search results
-data class SearchResult(val id: Int, val name: String)
-
 class MainActivity : ComponentActivity() {
     private val viewModel: MainViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
